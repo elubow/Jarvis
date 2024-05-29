@@ -1,0 +1,8 @@
+# vim
+*.sw*
+
+# Python Related
+whisper
+__pycache__
+*.pyc
+.env

@@ -4,7 +4,7 @@
 set -e
 
 # Define directory variables
-REPO_URL="https://github.com/conlan0/jarvis.git"
+REPO_URL="https://github.com/elubow/jarvis.git"
 INSTALL_DIR="/opt/jarvis"
 
 # Update and upgrade the system

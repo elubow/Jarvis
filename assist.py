@@ -19,7 +19,10 @@ assistant = client.beta.assistants.retrieve(os.getenv('ASSISTANT_ID'))
 
 # Create and retrieve the thread using environment variable
 jarvis_thread = os.getenv('CHAT_THREAD_ID')
-thread = client.beta.threads.retrieve(jarvis_thread)
+if jarvis_thread == "":
+    thread = client.beta.threads.create()
+else:
+    thread = client.beta.threads.retrieve(jarvis_thread)
 
 # Function to ask a question to the assistant
 def ask_question_standard(question):
