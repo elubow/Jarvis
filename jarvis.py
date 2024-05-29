@@ -1,8 +1,9 @@
+import argparse
 import io
 import speech_recognition as sr
 import whisper
 import torch
-import assist 
+import assist
 import tools
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
@@ -21,6 +22,14 @@ def speak(words: str):
     assist.TTS(words)
 
 def main():
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--wmodel',
+                        type=str,
+                        default="tiny.en",
+                        choices=['tiny.en', 'tiny', 'base.en', 'base', 'small.en', 'small', 'medium.en', 'medium', 'large-v1', 'large-v2', 'large-v3', 'large'],
+                        help="Size of the whipser language model to use")
+    args = parser.parse_args()
     
     # The last time a recording was retrieved from the queue.
     phrase_time = None
@@ -37,8 +46,8 @@ def main():
     #set the mic source
     microphone = sr.Microphone(sample_rate=16000, device_index=1)
 
-    audio_model = whisper.load_model("tiny.en")
-    speak("Audio model loaded")
+    audio_model = whisper.load_model(args.wmodel)
+    speak(f"Audio model {args.wmodel} loaded")
     
     with microphone as source:
         recorder.adjust_for_ambient_noise(source)

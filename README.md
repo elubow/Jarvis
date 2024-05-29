@@ -32,11 +32,10 @@ python jarvis.py
 Speak to Jarvis: Begin speaking to the system. Use the hotwords like "Hey Jarvis" to initiate commands. Note it may take some time to load the model.
 
 ## Command Line Arguments
---model: Specify the Whisper model size (default: tiny). Options are tiny, base, small, medium, large.
---non_english: Use a non-English model if required.
---energy_threshold: Set the microphone energy threshold for detecting speech.
---record_timeout: Duration in seconds for how real-time the recording is.
---phrase_timeout: Duration in seconds for the silence interval to detect the end of a phrase.
+* --wmodel: Specify the Whisper model size (default: tiny.en). Options are: ['tiny.en', 'tiny', 'base.en', 'base', 'small.en', 'small', 'medium.en', 'medium', 'large-v1', 'large-v2', 'large-v3', 'large']
+* --energy_threshold: Set the microphone energy threshold for detecting speech.
+* --record_timeout: Duration in seconds for how real-time the recording is.
+* --phrase_timeout: Duration in seconds for the silence interval to detect the end of a phrase.
 
 ## Configuration
 Modify the script's hot_words list to customize the trigger words according to your preference.
